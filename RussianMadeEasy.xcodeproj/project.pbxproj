@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		276DA6AF1EDEEAA500E27F73 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DA6AE1EDEEAA500E27F73 /* CustomSegmentedControl.swift */; };
+		27DF18BC1EE2C4EB00AD5A0E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DF18BB1EE2C4EB00AD5A0E /* SplashViewController.swift */; };
+		27DF18C21EE2CA1C00AD5A0E /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DF18C11EE2CA1C00AD5A0E /* IJReachability.swift */; };
+		27DF18C41EE2CB4300AD5A0E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DF18C31EE2CB4300AD5A0E /* AddViewController.swift */; };
 		3605E5871EDEF87800E2B63B /* VideoviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3605E5861EDEF87800E2B63B /* VideoviewCell.swift */; };
 		36FAC7271EDF196500E6F02B /* Dataclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC7261EDF196500E6F02B /* Dataclass.swift */; };
 		C8DF7EEF1BA8455100B9324F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF7EEE1BA8455100B9324F /* AppDelegate.swift */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		276DA6AE1EDEEAA500E27F73 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		27DF18BB1EE2C4EB00AD5A0E /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		27DF18C11EE2CA1C00AD5A0E /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
+		27DF18C31EE2CB4300AD5A0E /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		3605E5861EDEF87800E2B63B /* VideoviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoviewCell.swift; sourceTree = "<group>"; };
 		36FAC7261EDF196500E6F02B /* Dataclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dataclass.swift; sourceTree = "<group>"; };
 		C8DF7EEB1BA8455100B9324F /* RussianMadeEasy.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RussianMadeEasy.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +53,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27DF18BA1EE2C43200AD5A0E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				276DA6AE1EDEEAA500E27F73 /* CustomSegmentedControl.swift */,
+				27DF18C31EE2CB4300AD5A0E /* AddViewController.swift */,
+				27DF18C11EE2CA1C00AD5A0E /* IJReachability.swift */,
+				C8DF7EEE1BA8455100B9324F /* AppDelegate.swift */,
+				C8DF7EF21BA8455100B9324F /* Main.storyboard */,
+				3605E5861EDEF87800E2B63B /* VideoviewCell.swift */,
+				C8DF7F061BA921F500B9324F /* TabySegmentedControl.swift */,
+				C8DF7F001BA8659A00B9324F /* ParentViewController.swift */,
+				C8DF7F021BA91A0400B9324F /* VideoTabViewController.swift */,
+				36FAC7261EDF196500E6F02B /* Dataclass.swift */,
+				C8DF7F041BA91A1600B9324F /* SecondTabViewController.swift */,
+				27DF18BB1EE2C4EB00AD5A0E /* SplashViewController.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		C8DF7EE21BA8455100B9324F = {
 			isa = PBXGroup;
 			children = (
@@ -66,15 +91,7 @@
 		C8DF7EED1BA8455100B9324F /* UISegmentedControlAsTabbarDemo */ = {
 			isa = PBXGroup;
 			children = (
-				276DA6AE1EDEEAA500E27F73 /* CustomSegmentedControl.swift */,
-				C8DF7EEE1BA8455100B9324F /* AppDelegate.swift */,
-				C8DF7EF21BA8455100B9324F /* Main.storyboard */,
-				3605E5861EDEF87800E2B63B /* VideoviewCell.swift */,
-				C8DF7F061BA921F500B9324F /* TabySegmentedControl.swift */,
-				C8DF7F001BA8659A00B9324F /* ParentViewController.swift */,
-				C8DF7F021BA91A0400B9324F /* VideoTabViewController.swift */,
-				36FAC7261EDF196500E6F02B /* Dataclass.swift */,
-				C8DF7F041BA91A1600B9324F /* SecondTabViewController.swift */,
+				27DF18BA1EE2C43200AD5A0E /* Classes */,
 				C8DF7EF51BA8455100B9324F /* Assets.xcassets */,
 				C8DF7EF71BA8455100B9324F /* LaunchScreen.storyboard */,
 				C8DF7EFA1BA8455100B9324F /* Info.plist */,
@@ -113,7 +130,7 @@
 				TargetAttributes = {
 					C8DF7EEA1BA8455100B9324F = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 5BBUDM5XDN;
+						DevelopmentTeam = FD6X2DE3F5;
 						LastSwiftMigration = 0830;
 					};
 				};
@@ -157,9 +174,12 @@
 				C8DF7F031BA91A0400B9324F /* VideoTabViewController.swift in Sources */,
 				C8DF7F011BA8659A00B9324F /* ParentViewController.swift in Sources */,
 				36FAC7271EDF196500E6F02B /* Dataclass.swift in Sources */,
+				27DF18C41EE2CB4300AD5A0E /* AddViewController.swift in Sources */,
+				27DF18BC1EE2C4EB00AD5A0E /* SplashViewController.swift in Sources */,
 				C8DF7F071BA921F500B9324F /* TabySegmentedControl.swift in Sources */,
 				3605E5871EDEF87800E2B63B /* VideoviewCell.swift in Sources */,
 				C8DF7F051BA91A1600B9324F /* SecondTabViewController.swift in Sources */,
+				27DF18C21EE2CA1C00AD5A0E /* IJReachability.swift in Sources */,
 				C8DF7EEF1BA8455100B9324F /* AppDelegate.swift in Sources */,
 				276DA6AF1EDEEAA500E27F73 /* CustomSegmentedControl.swift in Sources */,
 			);
@@ -274,13 +294,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5BBUDM5XDN;
+				DEVELOPMENT_TEAM = FD6X2DE3F5;
 				INFOPLIST_FILE = UISegmentedControlAsTabbarDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abdurrahman.UISegmentedControlAsTabbarDemo;
 				PRODUCT_NAME = RussianMadeEasy.temp_caseinsensitive_rename;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -288,13 +309,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5BBUDM5XDN;
+				DEVELOPMENT_TEAM = FD6X2DE3F5;
 				INFOPLIST_FILE = UISegmentedControlAsTabbarDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abdurrahman.UISegmentedControlAsTabbarDemo;
 				PRODUCT_NAME = RussianMadeEasy.temp_caseinsensitive_rename;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

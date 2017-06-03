@@ -22,8 +22,7 @@ class VideoTabViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
-  
-        
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +41,7 @@ class VideoTabViewController: UIViewController, UITableViewDelegate, UITableView
     //UITableview methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if viewSelectionChoice == 1{
+        if viewSelectionChoice == 0{
             
             let numberOfRows = Dataclass.sharedData.dataForVideoArray.count
             
@@ -63,28 +62,66 @@ class VideoTabViewController: UIViewController, UITableViewDelegate, UITableView
             cell = VideoviewCell(style: UITableViewCellStyle.value1, reuseIdentifier: cellIdentifier)
         }
         
-        //if viewSelectionChoice == 1{
+        var videoDataItem : videoData?
+        
+        if viewSelectionChoice == 0{
         
         print("viewSelectionChoice == 1")
             
-        let videoDataItem = Dataclass.sharedData.dataForVideoArray[indexPath.row] as videoData
+        videoDataItem = Dataclass.sharedData.dataForVideoArray[indexPath.row] as videoData
+            
+        }else{
+            
+            videoDataItem = Dataclass.sharedData.dataForExtraArray[indexPath.row] as videoData
+            
+        }
         
-        cell?.videoTitle.text = videoDataItem.title
+        if let videoDataItemReceived:videoData = videoDataItem{
+            
+        cell?.videoTitle.text = videoDataItemReceived.title
         
-        let videoURL = URL(string: videoDataItem.videoLink)
+        if viewSelectionChoice == 0 && Dataclass.sharedData.dataForVideoArray.count == (indexPath.row + 1){
+        
+             cell?.videoTitle.text = "last lesson"
+        }
+            
+        let videoURL = URL(string: videoDataItemReceived.videoLink)
 
         cell?.webView.delegate = self
         
-        //1. Load web site into my web view
-        let myURL = videoURL
-        let myURLRequest:URLRequest = URLRequest(url: myURL!)
-        cell?.webView.loadRequest(myURLRequest)
-        cell?.webView.allowsInlineMediaPlayback = true
-        cell?.webView.backgroundColor = UIColor.darkGray
-        cell?.webView.scrollView.isScrollEnabled = false
-        cell?.webView.scrollView.bounces = false
-        cell?.isSelected = videoDataItem.isSelected
+            if IJReachability.isConnectedToNetwork(){
+                
+                DispatchQueue.global( priority:.default).async(execute: {
+                    //Load something here. Notice this is not main thread and you can't change anything in UI from here.
+                    //1. Load web site into my web view
+                    let myURL = videoURL
+                    let myURLRequest:URLRequest = URLRequest(url: myURL!)
 
+                    DispatchQueue.main.async(execute: {
+                        //update UI in main thread once the loading is completed.
+                        cell?.webView.loadRequest(myURLRequest)
+                        cell?.webView.allowsInlineMediaPlayback = true
+                        cell?.webView.backgroundColor = UIColor.darkGray
+                        cell?.webView.scrollView.isScrollEnabled = false
+                        cell?.webView.scrollView.bounces = false
+                        cell?.isSelected = videoDataItemReceived.isSelected
+                    });
+                    
+                })
+                
+            }else {
+                
+                let createAccountErrorAlert: UIAlertView = UIAlertView()
+                createAccountErrorAlert.delegate = self
+                createAccountErrorAlert.title = "Error"
+                createAccountErrorAlert.message = "No connection with internet."
+                createAccountErrorAlert.addButton(withTitle: "Proceed")
+                createAccountErrorAlert.show()
+                
+            }
+
+
+        }
 
         return cell!
     }
@@ -95,5 +132,12 @@ class VideoTabViewController: UIViewController, UITableViewDelegate, UITableView
         videoDataItem.isSelected = true
  
     }
+    
+    @IBAction func goToWebsiteAction(_ sender: Any) {
+       
+        let url = URL(string: "http://russianmadeeasy.com/")!
+        UIApplication.shared.openURL(url)
+    }
+  
     
 }

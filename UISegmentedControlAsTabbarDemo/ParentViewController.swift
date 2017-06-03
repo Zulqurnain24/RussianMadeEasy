@@ -21,11 +21,18 @@ class ParentViewController: UIViewController {
     
     var currentViewController: UIViewController?
     lazy var firstChildTabVC: UIViewController? = {
-        let firstChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoTabViewController")
+        let firstChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewControllerId")
         return firstChildTabVC
     }()
     lazy var secondChildTabVC : UIViewController? = {
-        let secondChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewControllerId")
+        let secondChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoTabViewController") as! VideoTabViewController
+        secondChildTabVC.viewSelectionChoice = 0
+        
+        return secondChildTabVC
+    }()
+    lazy var thirdChildTabVC : UIViewController? = {
+        let secondChildTabVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoTabViewController") as! VideoTabViewController
+        secondChildTabVC.viewSelectionChoice = 1
         
         return secondChildTabVC
     }()
@@ -72,13 +79,13 @@ class ParentViewController: UIViewController {
         var vc: UIViewController?
         switch index {
         case TabIndex.firstChildTab.rawValue :
-            vc = secondChildTabVC
-        case TabIndex.secondChildTab.rawValue :
             vc = firstChildTabVC
+        case TabIndex.secondChildTab.rawValue :
+            vc = secondChildTabVC
 //            let videoTabViewController = vc as? VideoTabViewController
 //            videoTabViewController?.viewSelectionChoice = 1
         case TabIndex.thirdChildTab.rawValue :
-            vc = firstChildTabVC
+            vc = thirdChildTabVC
 //            let videoTabViewController = vc as? VideoTabViewController
 //            videoTabViewController?.viewSelectionChoice = 2
         default:
