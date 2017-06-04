@@ -17,19 +17,19 @@ class SplashViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        var imgListArray :[UIImage] = []
-        
-        for countValue in 1..<6
-        {
-            
-            var strImageName : String = "splash\(countValue).jpg"
-            var image  = UIImage(named:strImageName)
-            imgListArray.append(image!)
-        }
-        
-        self.splashScreenViewController.animationImages = imgListArray
-        self.splashScreenViewController.animationDuration = 4.0
-        self.splashScreenViewController.startAnimating()
+//        var imgListArray :[UIImage] = []
+//        
+//        for countValue in 1..<6
+//        {
+//            
+//            var strImageName : String = "splash\(countValue).jpg"
+//            var image  = UIImage(named:strImageName)
+//            imgListArray.append(image!)
+//        }
+//        
+//        self.splashScreenViewController.animationImages = imgListArray
+//        self.splashScreenViewController.animationDuration = 4.0
+//        self.splashScreenViewController.startAnimating()
         
         let when = DispatchTime.now() + 4 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
